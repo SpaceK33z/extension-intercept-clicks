@@ -1,0 +1,1 @@
+# extension-intercept-clicks
