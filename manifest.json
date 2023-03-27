@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Intercept Click Demo",
+    "short_name": "InterceptClickDemo",
+    "description": "Just a demo showcasing how to intercept clicks in webpages",
+    "version": "1.00",
+    "homepage_url": "https://example.com",
+    "background": { "service_worker": "background.js", "type": "module" },
+    "minimum_chrome_version": "100",
+    "action": {},
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "all_frames": true,
+        "match_about_blank": true
+      }
+    ],
+    "permissions": ["storage", "activeTab", "tabs", "scripting", "unlimitedStorage", "system.display"],
+    "host_permissions": ["<all_urls>"],
+    "content_security_policy": { "extension_pages": "script-src 'self'; object-src 'self'" }
+}
