@@ -1,6 +1,6 @@
 console.log('[DEMO] loaded content script');
 
-document.addEventListener('click', function demoExtensionClickHandler(event) {
+function demoExtensionClickHandler(event) {
   if (!event.isTrusted) return;
   event.preventDefault();
   event.stopPropagation();
@@ -16,4 +16,6 @@ document.addEventListener('click', function demoExtensionClickHandler(event) {
   setTimeout(() => {
     target?.click();
   }, 1000);
-}, { capture: true });
+}
+
+document.addEventListener('click', demoExtensionClickHandler, { capture: true });
